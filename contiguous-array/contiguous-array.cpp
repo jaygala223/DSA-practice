@@ -1,28 +1,25 @@
 class Solution {
 public:
     int findMaxLength(vector<int>& nums) {
-        unsigned int longContSubArr = 0;
-        
-        unsigned int sum = 0;
-        unordered_map<int,int> mp;
-        
-        for(unsigned int i=0; i<nums.size(); i++){
-            
-            //1 hai to 1 add kar, varna -1 if its zero
-            sum += (nums[i] == 0)? -1:1;
-            
-            auto it = mp.find(sum);
-            
-            if(sum == 0){
-                longContSubArr = max(longContSubArr, i+1);
-            }
-            else if(it != mp.end()){
-                longContSubArr= max(longContSubArr ,i-(mp[sum]));
-            }
-            else if(it == mp.end()){
-                mp[sum] = i;
-            }
-        }
-        return longContSubArr;
+       int sum=0;
+       unordered_map<int,int> m;
+       unsigned int longestContArray = 0;
+       
+        for(int i=0;i<nums.size();i++){
+           sum += (nums[i]==0)?-1:1;
+           
+           auto it = m.find(sum);
+           
+           if(sum == 0){
+               longestContArray = i+1;
+           }
+           else if(it != m.end()){
+              if(longestContArray < i-it->second)
+               longestContArray = i-it->second;
+           }
+           else if(it == m.end())
+                m.insert({sum,i});
+       }
+        return longestContArray;
     }
 };
