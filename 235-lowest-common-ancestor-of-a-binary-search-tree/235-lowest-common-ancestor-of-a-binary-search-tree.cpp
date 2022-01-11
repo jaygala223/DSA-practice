@@ -27,10 +27,9 @@ public:
             else if(root == p || root == q){
                 return root==p?p:q;
             }
-            else {
+
                 if(pv > rv) root = root->right;
                 else root = root->left;
-            }
         }
         return NULL;
     }
