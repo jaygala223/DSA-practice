@@ -17,8 +17,8 @@ public:
                 numPart++;
                 tempSum = 0;
             }
-            if(numPart == 3) return true;
+            //if return true;
         }
-        return false;
+        return (numPart > 2);
     }
 };
