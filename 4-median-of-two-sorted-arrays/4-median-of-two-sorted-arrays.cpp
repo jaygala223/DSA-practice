@@ -5,6 +5,7 @@ public:
         int m=nums1.size();
         int n=nums2.size();
         
+        if(m+n == 0) return 0.0;
         vector<int> ans(m+n,0);
         
         int i=m-1,j=n-1,k=m+n-1;
@@ -24,9 +25,7 @@ public:
         }
         int mid=(m+n)/2;
         if((m+n)%2==0){
-            double x = ans[mid];
-            double y = ans[mid-1];
-            return (x+y)/2.0;
+            return (ans[mid]+ans[mid-1])/2.0;
         }
         else return ans[mid];
     }
