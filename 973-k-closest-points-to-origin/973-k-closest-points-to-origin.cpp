@@ -3,15 +3,20 @@ public:
     vector<vector<int>> kClosest(vector<vector<int>>& points, int k) {
         vector<vector<int>> ans;
         
-        multimap<int,int> mp;
-        for(int i=0; i<points.size(); i++){
-            mp.insert({pow(points[i][0],2)+ pow(points[i][1],2), i});
+        priority_queue<vector<int>> heap;
+        
+        for(auto item: points){
+            int x = item[0], y = item[1];
+            heap.push({x*x + y*y, x, y});
+            
+            if(heap.size() > k) heap.pop();
         }
-        int count = 0;
-        for(auto it=mp.begin(); count<k; count++, it++)
-            ans.push_back(points[it->second]);
         
-        
+        while(!heap.empty()){
+            vector<int> top = heap.top();
+            heap.pop();
+            ans.push_back({top[1],top[2]});
+        }
         return ans;
     }
 };
