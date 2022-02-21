@@ -11,6 +11,6 @@ public:
               goal = i;
           }  
         }
-        return goal==0;
+        return !goal;
     }
 };
