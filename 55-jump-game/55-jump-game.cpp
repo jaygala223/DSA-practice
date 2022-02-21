@@ -11,7 +11,6 @@ public:
               goal = i;
           }  
         }
-        if(!goal) return true; 
-        else return false;
+        return goal==0;
     }
 };
