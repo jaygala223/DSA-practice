@@ -1,17 +1,20 @@
 class Solution {
 public:
-    vector<int> dp = vector<int>(46,-1);
+    
     
     int climbStairs(int n) {
-        if(n <= 1) return 1;
-        if(dp[n] != -1) return dp[n];
+        if(n<=2) return n;
         
-        //left and right here mean the RECURSIVE TREE'S left and right
+        int prev2 = 1;
+        int prev = 2;
+        int curr_i=0;
         
-        int left = climbStairs(n-1);
-        int right = climbStairs(n-2);
+        for(int i=2; i<n; i++){
+            curr_i = prev2 + prev;
+            prev2 = prev;
+            prev = curr_i;
+        }
         
-        dp[n] = left+right;
-        return left+right;
+        return prev;
     }
 };
