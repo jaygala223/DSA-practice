@@ -12,7 +12,7 @@ public:
         }
         
         for(int i=0; i<nums2.size(); i++){
-            if(set.find(nums2[i]) != set.end()) {
+            if(set.count(nums2[i])) {
                 ans.push_back(nums2[i]);
                 set.erase(nums2[i]);
             }
