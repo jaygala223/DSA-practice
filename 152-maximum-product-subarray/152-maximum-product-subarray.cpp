@@ -2,7 +2,7 @@ class Solution {
 public:
     int maxProduct(vector<int>& nums) {
         int ans = *max_element(nums.begin(), nums.end());
-        cout<<ans;
+        //cout<<ans;
         
         int currMin = 1, currMax = 1;
         
