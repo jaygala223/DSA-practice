@@ -1,20 +1,22 @@
 class Solution {
 public:
     int maxProduct(vector<int>& nums) {
+        int ans = *max_element(nums.begin(), nums.end());
+        //cout<<ans;
         
-        int ans, currMax, currMin;
-        ans = currMax = currMin = nums[0];
+        int currMin = 1, currMax = 1;
         
-        for(int i=1; i<nums.size(); i++){
-            int curr = nums[i];
-            if(curr < 0) swap(currMax, currMin);
+        for(auto item: nums){
+            int temp = currMin*item;
             
-            currMin = min(curr, currMin*curr);
-            currMax = max(curr, currMax*curr);
+            currMin = min(item*currMax, currMin*item);
+            currMin = min(item, currMin);
+            
+            currMax = max(currMax*item, temp);
+            currMax = max(item, currMax);
             
             ans = max(ans, currMax);
         }
-        
         return ans;
     }
 };
