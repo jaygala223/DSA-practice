@@ -12,8 +12,8 @@ public:
             currMin = min(curr, currMin*curr);
             currMax = max(curr, currMax*curr);
             
-            cout<<"min is = "<<currMin<<endl;
-            cout<<"max is = "<<currMax<<endl;
+            //cout<<"min is = "<<currMin<<endl;
+            //cout<<"max is = "<<currMax<<endl;
             
             ans = max(ans, currMax);
         }
