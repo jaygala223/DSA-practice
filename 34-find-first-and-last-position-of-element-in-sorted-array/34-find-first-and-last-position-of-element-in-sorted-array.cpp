@@ -1,28 +1,28 @@
 class Solution {
 public:
-    vector<int> searchRange(vector<int>& nums, int target) {
-        int n = nums.size();
+    int binarySearch(vector<int> arr, int target, bool leftBias){
+        int left = 0, right = arr.size()-1;
         
-        int cnt=0, cnt2 = 0, f=-1, l=-1;
-        int i = 0;
-        while(i<n){
-            if(nums[i] == target and cnt == 0) {
-                f = i;
-                cnt++;
+        int pos = -1;
+        
+        while(left <= right){
+            int mid = (left + right)/2;
+            if (arr[mid] > target) right = mid - 1;
+            else if(arr[mid] < target) left = mid + 1;
+            else{
+                pos = mid;
+                if(leftBias) right = mid - 1;
+                else left = mid + 1;
             }
-            if(nums[n-i-1] == target and cnt2 == 0) {
-                l=n-i-1;
-                cnt2++;
-            }
-
-            if(f!=-1 and l!=-1) break;       
-            i++;
         }
+        return pos;
+    }
+    
+    
+    vector<int> searchRange(vector<int>& nums, int target) {
+        int l = binarySearch(nums, target, true);
+        int r = binarySearch(nums, target, false);
         
-        
-        vector<int> ans(2);
-        ans[0] = f;
-        ans[1] = l;
-        return ans;
+        return {l,r};
     }
 };
