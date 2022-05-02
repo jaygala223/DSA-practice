@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int binarySearch(vector<int> arr, int target, bool leftBias){
+    int binarySearch(vector<int> &arr, int target, bool leftBias){
         int left = 0, right = arr.size()-1;
         
         int pos = -1;
