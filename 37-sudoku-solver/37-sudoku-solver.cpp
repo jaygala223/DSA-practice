@@ -5,8 +5,8 @@ public:
     }
     
     bool solve(vector<vector<char>> &board){
-        for(int row=0; row<board.size(); row++){
-            for(int col=0; col<board[0].size(); col++){
+        for(int row=0; row<9; row++){
+            for(int col=0; col<9; col++){
                 
                 if(board[row][col] == '.'){
                     for(char c='1'; c<='9'; c++){
