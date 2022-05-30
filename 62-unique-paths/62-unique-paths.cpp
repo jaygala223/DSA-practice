@@ -5,8 +5,8 @@ public:
         if(row == 0 and column == 0){
             return 1;
         }
-        if(row < 0 or column < 0) return 0;
-        if(dp[row][column] != -1) return dp[row][column];
+        else if(row < 0 or column < 0) return 0;
+        else if(dp[row][column] != -1) return dp[row][column];
         
         //since we're going bottom up dp
         int up = bfs(row-1, column, m, n, dp);
