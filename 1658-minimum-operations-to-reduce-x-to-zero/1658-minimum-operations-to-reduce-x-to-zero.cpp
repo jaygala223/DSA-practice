@@ -18,10 +18,7 @@ public:
             if(curSum == k){
                 found = true;
                 ans = max(ans, right-left+1);   
-            }
-            
-                
-                
+            }    
             right++;
         }
         
