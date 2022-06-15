@@ -10,8 +10,8 @@ public:
             
             p1++;
         }
-        if(p1 == s1.size() and p2 == s2.size()) return true;
-        return false;
+        return (p1 == s1.size() and p2 == s2.size());
+        
     }
     
     
