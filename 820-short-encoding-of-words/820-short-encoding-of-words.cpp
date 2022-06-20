@@ -7,7 +7,7 @@ public:
         
         for(auto word: set){
             for(int ind=1; ind<word.size(); ind++){
-                string s = word.substr(ind, word.size()-1);
+                string s = word.substr(ind);
                 if(set.find(s) != set.end()) set.erase(s);
             }
         }
