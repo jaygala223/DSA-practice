@@ -1,10 +1,14 @@
 class Solution {
 public:
+    static bool comp(vector<int> a1, vector<int> a2){
+        return a1[1] < a2[1];
+    }
+    
     int scheduleCourse(vector<vector<int>>& courses) {
         int ans = 0, currTotalTime = 0;
         
         int n = courses.size();
-        sort(courses.begin(), courses.end(), [](auto &a, auto &b) {return a[1] < b[1];});
+        sort(courses.begin(), courses.end(),comp);
         
         priority_queue<int> hp;
         //for(auto course: courses) cout<<course[1]<<" ";
