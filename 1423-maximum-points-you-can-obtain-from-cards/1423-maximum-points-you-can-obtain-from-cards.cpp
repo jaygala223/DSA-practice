@@ -3,24 +3,19 @@ public:
     int maxScore(vector<int>& nums, int k) {
         int n = nums.size();
         
-        int totSum = accumulate(nums.begin(), nums.end(), 0);
+        int lSum = 0, rSum = 0;
         
-        if(k == n) return totSum;
-        
-        int left = 0, right = 0, len = n - k, mini = INT_MAX, subSum = 0;
-        
-        while(right < len){
-            subSum += nums[right++];
-        }
-        mini = min(mini, subSum);
-        while(right < n){
-            subSum += nums[right++];
-            subSum -= nums[left++]; 
-            mini = min(mini, subSum);
+        for(int i=0; i<k; i++){
+            lSum += nums[i];
         }
         
+        int maxi = lSum;
+        for(int i=0; i<k; i++){
+            rSum += nums[n - i - 1];
+            lSum -= nums[k - i - 1];
+            maxi = max(maxi, rSum + lSum);
+        }
         
-        //cout<<mini<<" ";
-        return totSum - mini;
+        return maxi;
     }
 };
