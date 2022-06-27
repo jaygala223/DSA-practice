@@ -7,22 +7,20 @@ public:
         
         if(k == n) return totSum;
         
-        int len = n - k, mini = INT_MAX, subSum = 0;
-        queue<int> q;
+        int left = 0, right = 0, len = n - k, mini = INT_MAX, subSum = 0;
         
-        for(int i=0; i<n; i++){
-            subSum += nums[i];
-            q.push(nums[i]);
-            if(q.size() == len) mini = min(subSum, mini);
-            
-            else if(q.size() > len){
-                subSum -= q.front();
-                q.pop();
-                mini = min(subSum, mini);
-            }
-            
+        while(right < len){
+            subSum += nums[right++];
         }
-        cout<<mini<<" ";
+        mini = min(mini, subSum);
+        while(right < n){
+            subSum += nums[right++];
+            subSum -= nums[left++]; 
+            mini = min(mini, subSum);
+        }
+        
+        
+        //cout<<mini<<" ";
         return totSum - mini;
     }
 };
