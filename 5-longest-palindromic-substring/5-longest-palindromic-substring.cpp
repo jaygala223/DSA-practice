@@ -4,7 +4,7 @@ public:
         int n = s.size();
         
         string ans;
-        int maxLen = 0;
+        int maxLen = 0, ans_l, ans_r;
         
         for(int i=0; i<n; i++){
             
@@ -14,7 +14,7 @@ public:
                 int currLen = right - left + 1;
                 if(currLen > maxLen){
                     maxLen = currLen;
-                    ans = s.substr(left, currLen);
+                    ans_l = left, ans_r = right;
                 }
                 left--;
                 right++;
@@ -26,12 +26,12 @@ public:
                 int currLen = right - left + 1;
                 if(currLen > maxLen){
                     maxLen = currLen;
-                    ans = s.substr(left, currLen);
+                    ans_l = left, ans_r = right;
                 }
                 left--;
                 right++;
             }
         }
-        return ans;
+        return s.substr(ans_l, maxLen);
     }
 };
