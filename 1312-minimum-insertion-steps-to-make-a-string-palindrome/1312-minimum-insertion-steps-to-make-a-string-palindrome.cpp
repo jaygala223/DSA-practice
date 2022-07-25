@@ -2,7 +2,7 @@ class Solution {
 public:
     int lcs(string text1, string text2) {
         int n1 = text1.size();
-        int n2 = text2.size();
+        int n2 = n1;
         
         vector<vector<int>> dp(n1+1, vector<int>(n2+1, -1));
         
