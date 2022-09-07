@@ -6,15 +6,15 @@ class Solution:
         while(lo <= hi):
             mid = lo + int((hi-lo)/2)
             
-            if(nums[mid] == target): return mid;
+            if nums[mid] == target: return mid;
             
-            elif(nums[lo] <= nums[mid]):
-                if(nums[lo] <= target and nums[mid] >= target):
+            if nums[lo] <= nums[mid]:
+                if nums[lo] <= target <= nums[mid]:
                     hi = mid-1
                 else: lo = mid+1
             
             else:
-                if(nums[mid] <= target and nums[hi] >= target):
+                if nums[mid] <= target <= nums[hi]:
                     lo = mid+1
                 else: hi = mid-1
             
