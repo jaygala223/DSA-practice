@@ -1,19 +1,12 @@
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
-        def binary(matrix, lo, hi, target):
-            
-            while(lo <= hi):
-                mid = lo + int((hi-lo)/2)
-                
-                if(target == matrix[mid]): return True
-                elif(target > matrix[mid]): lo = mid+1
-                else: hi = mid-1
-            return False
+        i = 0
+        j = len(matrix[0])-1
         
-        for i in range(len(matrix)):
-            lo = 0
-            hi = len(matrix[0])-1
+        while(j >= 0 and i < len(matrix)):
+            if(matrix[i][j] == target): return True
             
-            if(matrix[i][lo] <= target <= matrix[i][hi]):
-                return binary(matrix[i], lo, hi, target)
+            if(matrix[i][j] < target): i+=1
+            else: j-=1
+        return False
         
