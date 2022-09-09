@@ -7,7 +7,6 @@ class Solution:
         
         #returns a list sorted by the freq of the letters
         sorted_freq = sorted(freq, key=freq.get, reverse=True)
-        print(sorted_freq)
         
         for i in sorted_freq:    
             ans += (i * freq[i])
