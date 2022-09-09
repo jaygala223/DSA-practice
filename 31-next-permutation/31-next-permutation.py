@@ -5,18 +5,14 @@ class Solution:
         """
         
         ind1 = -1
-        ind2 = 0
         
         for i in range(len(nums)-2, -1, -1):
             if nums[i] < nums[i+1]:
                 ind1 = i
                 break
                 
-        print(ind1)
-                
         if ind1 == -1: 
-            nums[:]=nums[::-1]
-            return nums
+            return nums.reverse()
             
         for i in range(len(nums)-1, ind1, -1):
             if nums[i] > nums[ind1]:
