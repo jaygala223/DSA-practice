@@ -6,7 +6,6 @@ class Solution:
         dp = {}
                 
         def helper(row, col, dp):
-            print(dp)
             #this is one way to reach the dest
             if row == 0 and col == 0: return 1
 
