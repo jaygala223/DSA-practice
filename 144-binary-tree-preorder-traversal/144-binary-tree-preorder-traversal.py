@@ -9,12 +9,12 @@ class Solution:
         
         ans = []
         
-        def preorder(node, ans):
+        def preorder(node):
             if node:
                 ans.append(node.val)
-                preorder(node.left, ans)
-                preorder(node.right, ans)
+                preorder(node.left)
+                preorder(node.right)
         
-        preorder(root, ans)
+        preorder(root)
         
         return ans
