@@ -9,19 +9,19 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 <img alt="" src="https://assets.leetcode.com/uploads/2020/11/04/robot1.jpg" style="width: 242px; height: 242px;">
-<pre><strong>Input:</strong> obstacleGrid = [[0,0,0],[0,1,0],[0,0,0]]
+<pre style="position: relative;"><strong>Input:</strong> obstacleGrid = [[0,0,0],[0,1,0],[0,0,0]]
 <strong>Output:</strong> 2
 <strong>Explanation:</strong> There is one obstacle in the middle of the 3x3 grid above.
 There are two ways to reach the bottom-right corner:
 1. Right -&gt; Right -&gt; Down -&gt; Down
 2. Down -&gt; Down -&gt; Right -&gt; Right
-</pre>
+<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
 
 <p><strong>Example 2:</strong></p>
 <img alt="" src="https://assets.leetcode.com/uploads/2020/11/04/robot2.jpg" style="width: 162px; height: 162px;">
-<pre><strong>Input:</strong> obstacleGrid = [[0,1],[0,0]]
+<pre style="position: relative;"><strong>Input:</strong> obstacleGrid = [[0,1],[0,0]]
 <strong>Output:</strong> 1
-</pre>
+<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
