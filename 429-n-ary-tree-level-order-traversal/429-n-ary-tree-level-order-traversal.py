@@ -21,10 +21,10 @@ class Solution:
             for i in range(size):
                 node = queue.pop(0)
                 #queue.pop()
-                level.append(node.val)
+                
                 for child in node.children:
                     queue.append(child)
-            
+                level.append(node.val)
             ans.append(level[:])
         
         return ans
