@@ -13,20 +13,20 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<pre><strong>Input:</strong> n = 19
+<pre style="position: relative;"><strong>Input:</strong> n = 19
 <strong>Output:</strong> true
 <strong>Explanation:</strong>
 1<sup>2</sup> + 9<sup>2</sup> = 82
 8<sup>2</sup> + 2<sup>2</sup> = 68
 6<sup>2</sup> + 8<sup>2</sup> = 100
 1<sup>2</sup> + 0<sup>2</sup> + 0<sup>2</sup> = 1
-</pre>
+<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
 
 <p><strong>Example 2:</strong></p>
 
-<pre><strong>Input:</strong> n = 2
+<pre style="position: relative;"><strong>Input:</strong> n = 2
 <strong>Output:</strong> false
-</pre>
+<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
