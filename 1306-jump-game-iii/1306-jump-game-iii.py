@@ -1,12 +1,5 @@
 class Solution:
     def canReach(self, arr: List[int], start: int) -> bool:
-        zeros = []
-        
-#         for i in range(len(arr)):
-#             if arr[i] == 0:
-#                 zeros.append(i)
-        
-        
         visited = {}
         
         def jumps(ind):
