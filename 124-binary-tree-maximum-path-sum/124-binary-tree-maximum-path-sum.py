@@ -5,18 +5,19 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    maxi = -1001
+    maxPath = -1001
     def maxPathSum(self, root: Optional[TreeNode]) -> int:
         
-        def func(node):
-            if not node: return 0
+        def solve(root):
+            if not root: return 0
             
-            lsum = max(func(node.left), 0)
-            rsum = max(func(node.right),0)
+            leftSum = max(solve(root.left), 0)
+            rightSum = max(solve(root.right), 0)
             
-            self.maxi = max(self.maxi, lsum + rsum + node.val)
+            currSum = leftSum + rightSum + root.val
+            self.maxPath = max(self.maxPath, currSum)
             
-            return node.val + max(lsum, rsum)
+            return max(leftSum, rightSum) + root.val
         
-        func(root)
-        return self.maxi
+        solve(root)
+        return self.maxPath
