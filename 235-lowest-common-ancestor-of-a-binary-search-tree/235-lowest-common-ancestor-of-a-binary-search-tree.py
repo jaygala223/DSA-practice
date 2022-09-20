@@ -8,14 +8,19 @@
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
         
-        def lcaBST(root):
-            if root == p or root == q or not root:
-                return root
-            left = lcaBST(root.left)
-            right = lcaBST(root.right)
-            
-            if left and right: return root
-            
-            return left if left else right
+        pv, qv = p.val, q.val
         
-        return lcaBST(root)
+        while root:
+            rv = root.val
+            
+            #ek left me ek right mein
+            if qv > rv > pv or pv > rv > qv:
+                return root
+            
+            #jo pehle mil gaya wohi root
+            if root == p or root == q:
+                return root
+            
+            if pv > rv: root = root.right
+            else: root = root.left
+        return None
