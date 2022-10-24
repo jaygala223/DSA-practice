@@ -15,4 +15,6 @@ class Solution:
                 direction = (direction + 3) % 4
             else: direction = (direction + 1) % 4
         
+        #0 is N, 1 is W, 2 is E and 3 is S
+        
         return (x == 0 and y == 0) or direction
