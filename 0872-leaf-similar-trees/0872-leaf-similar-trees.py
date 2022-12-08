@@ -11,14 +11,14 @@ class Solution(object):
         :type root2: TreeNode
         :rtype: bool
         """
-        sequences = {'seq1': [], 'seq2': []}
+        sequences = {1: [], 2: []}
         
         def getSequence(root, seqNumber):
             if not root:
                 return
             
-            if root.right == None and root.left == None:
-                sequences['seq' + str(seqNumber)].append(root.val)
+            if not root.right and not root.left:
+                sequences[seqNumber].append(root.val)
                 
             getSequence(root.left, seqNumber)
             getSequence(root.right, seqNumber)
@@ -26,4 +26,4 @@ class Solution(object):
         getSequence(root1, 1)
         getSequence(root2, 2)
         
-        return sequences['seq1'] == sequences['seq2']
+        return sequences[1] == sequences[2]
