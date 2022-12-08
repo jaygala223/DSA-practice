@@ -11,19 +11,9 @@ class Solution(object):
         :type root2: TreeNode
         :rtype: bool
         """
-        sequences = {1: [], 2: []}
-        
-        def getSequence(root, seqNumber):
-            if not root:
-                return
-            
-            if not root.right and not root.left:
-                sequences[seqNumber].append(root.val)
-                
-            getSequence(root.left, seqNumber)
-            getSequence(root.right, seqNumber)
-            
-        getSequence(root1, 1)
-        getSequence(root2, 2)
-        
-        return sequences[1] == sequences[2]
+        return self.findLeaf(root1) == self.findLeaf(root2)
+    
+    def findLeaf(self, root):
+        if not root: return []
+        if not root.left and not root.right: return [root.val]
+        return self.findLeaf(root.left) + self.findLeaf(root.right)
