@@ -26,6 +26,4 @@ class Solution(object):
         getSequence(root1, 1)
         getSequence(root2, 2)
         
-        print(sequences['seq1'], sequences['seq2'])
-        
         return sequences['seq1'] == sequences['seq2']
