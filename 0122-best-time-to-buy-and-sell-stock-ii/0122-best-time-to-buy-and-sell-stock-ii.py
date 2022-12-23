@@ -20,6 +20,19 @@ class Solution(object):
             cache[(ind, buy)] = profit
             return profit
             
-        cache = dict()
+        #cache = dict()
         
-        return f(0, 1)
+        #space optimized bottom up
+        n = len(prices)
+        
+        ahead_buy, ahead_not_buy = 0, 0
+        
+        for ind in range(n-1, -1, -1):
+            curr_not_buy = max(prices[ind] + ahead_buy, ahead_not_buy)
+            curr_buy = max(-prices[ind] + ahead_not_buy, ahead_buy)
+            ahead_buy = curr_buy
+            ahead_not_buy = curr_not_buy
+            
+        return ahead_buy
+        
+        #return f(0, 1)
