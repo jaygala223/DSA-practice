@@ -13,12 +13,9 @@ class Solution(object):
             diff[i] = capacity[i] - rocks[i]
         
         diff = sorted(diff)
-        print(diff)
         
         for i in range(n):
-            if diff[i] == 0:
-                ans += 1
-            elif diff[i] <= additionalRocks:
+            if diff[i] <= additionalRocks:
                 ans += 1
                 additionalRocks = additionalRocks - diff[i]
             else:
