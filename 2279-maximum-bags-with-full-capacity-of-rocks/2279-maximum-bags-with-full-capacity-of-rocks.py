@@ -7,17 +7,15 @@ class Solution(object):
         :rtype: int
         """
         n, ans = len(rocks), 0
-        diff = [-1] * len(rocks)
+        diff = []
         
         for i in range(n):
-            diff[i] = capacity[i] - rocks[i]
+            diff.append(capacity[i] - rocks[i])
         
-        diff = sorted(diff)
-        
-        for i in range(n):
-            if diff[i] <= additionalRocks:
+        for d in sorted(diff):
+            if d <= additionalRocks:
                 ans += 1
-                additionalRocks = additionalRocks - diff[i]
+                additionalRocks -= d
             else:
                 break
         return ans
