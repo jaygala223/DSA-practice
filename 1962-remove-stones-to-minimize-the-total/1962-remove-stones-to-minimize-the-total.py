@@ -5,16 +5,11 @@ class Solution(object):
         :type k: int
         :rtype: int
         """
-        heap = []
+        heap = [-stones for stones in piles]
+        heapq.heapify(heap)
         
-        for item in piles:
-            heapq.heappush(heap, -1*item)
-        
-        print(heap)
-        
-        while heap and k:
+        for i in range(k):
             top = -1 * heapq.heappop(heap)
-            f = int(math.floor(top/2))
-            heapq.heappush(heap, -1 * (top - f))
-            k -= 1
-        return -1 * int(sum(heap))
+            heapq.heappush(heap, -(top - top//2))
+        return -sum(heap)
+        
