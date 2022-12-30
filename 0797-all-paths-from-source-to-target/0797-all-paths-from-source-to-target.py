@@ -1,20 +1,16 @@
-class Solution(object):
+class Solution:
     def allPathsSourceTarget(self, graph):
-        """
-        :type graph: List[List[int]]
-        :rtype: List[List[int]]
-        """
-        ans = []
-        path = []
-        
-        def dfs(cur, path):
-            if cur == len(graph) - 1:
-                res.append(path)
-            else:
-                for i in graph[cur]:
-                    dfs(i, path + [i])
-        
         res = []
-        dfs(0, [0])
+        self.dfs(graph, [0], 0, res)
         
         return res
+        
+        
+    def dfs(self, graph, cur_res, cur_node, res):
+        if cur_node == len(graph)-1:
+            res.append(list(cur_res))
+        
+        for node in graph[cur_node]:
+            cur_res.append(node)
+            self.dfs(graph, cur_res, node, res)
+            cur_res.pop()
