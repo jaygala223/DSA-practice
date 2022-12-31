@@ -2,13 +2,13 @@ class Solution:
     def uniquePathsIII(self, grid: List[List[int]]) -> int:
         self.ans = 0
         
-        zeros = 0
+        zeros = 1
         
         for i in range(len(grid)):
             for j in range(len(grid[0])):
                 if grid[i][j] == 1:
                     start_i, start_j = (i, j)
-                if grid[i][j] == 0 or grid[i][j] == 1:
+                if grid[i][j] == 0:
                     zeros += 1
 
         def dfs(i, j, zeros):
