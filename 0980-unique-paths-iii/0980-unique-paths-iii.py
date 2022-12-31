@@ -20,7 +20,7 @@ class Solution:
             
             dirs = [(-1,0), (0,1), (0,-1), (1,0)]
             
-            grid[i][j] = -2
+            grid[i][j] = -1
             for row,col in dirs:
                 dfs(i + row, j + col, zeros-1)
             grid[i][j] = 0
