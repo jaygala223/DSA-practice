@@ -5,7 +5,6 @@ class Solution:
         
         for item in tasks:
             freq[item] = freq.get(item, 0) + 1
-        print(freq)
         
         for item in freq:
             if freq[item] != 1:
