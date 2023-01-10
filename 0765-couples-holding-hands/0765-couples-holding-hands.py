@@ -9,7 +9,7 @@ class Solution:
             partners[i] = i+1
             partners[i+1] = i
         
-        for i in range(0, n-2, 2):
+        for i in range(0, n-1, 2):
             if partners[row[i]] != row[i+1]:
                 ans += 1
                 #swapping
