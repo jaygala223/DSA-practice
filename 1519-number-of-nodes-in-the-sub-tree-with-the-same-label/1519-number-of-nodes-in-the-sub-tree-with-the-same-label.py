@@ -9,14 +9,15 @@ class Solution:
             tree[child].append(parent)
         
         def dfs(node, parent):
-            res = 1
             counter = collections.Counter()
             
             for nei in tree[node]:
                 if nei != parent:
                     counter += dfs(nei, node)
+            
             counter[labels[node]] += 1
             ans[node] = counter[labels[node]]
+            
             return counter
 
         dfs(0,-1)
