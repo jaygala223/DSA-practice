@@ -21,8 +21,8 @@ class Solution:
                 nums1[idx] = nums2[p2]
                 p2 -= 1
                 idx -= 1
-        else:
-            while p1 >= 0:
-                nums1[idx] = nums1[p1]
-                p1 -= 1
-                idx -= 1
+        # else:
+        #     while p1 >= 0:
+        #         nums1[idx] = nums1[p1]
+        #         p1 -= 1
+        #         idx -= 1
