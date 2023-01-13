@@ -1,6 +1,6 @@
 class Solution:
     def longestPath(self, parent: List[int], s: str) -> int:
-        
+        #refer: https://leetcode.com/problems/longest-path-with-different-adjacent-characters/discuss/1955433/JavaC%2B%2BPython-DFS-on-Tree
         tree = defaultdict(list)
         
         for i in range(1, len(parent)):
