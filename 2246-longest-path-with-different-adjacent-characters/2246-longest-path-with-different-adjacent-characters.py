@@ -6,20 +6,19 @@ class Solution:
         for i in range(1, len(parent)):
             tree[parent[i]].append(i)
         
-        #to store ans globally and not pass it in the function
-        res = [-1]
+        self.ans = 1
         
-        def dfs(node):
-            candi = [0]
+        def func(node):
+            if node not in tree: return 1
+            
+            res = 1
             
             for nei in tree[node]:
-                cur = dfs(nei)
-                if s[nei] != s[node]:
-                    candi.append(cur)
-            
-            candi = nlargest(2, candi)
-            res[0] = max(res[0], sum(candi) + 1)
-            return max(candi) + 1
+                length = func(nei)
+                if s[node] != s[nei]:
+                    self.ans = max(self.ans, length + res)
+                    res = max(res, length + 1)
+            return res
         
-        dfs(0)
-        return res[0]
+        func(0)
+        return self.ans
