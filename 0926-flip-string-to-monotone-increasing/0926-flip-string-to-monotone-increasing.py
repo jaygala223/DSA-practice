@@ -1,13 +1,12 @@
 class Solution:
     def minFlipsMonoIncr(self, s: str) -> int:
         
-        zeros, ones, ans = 0, 0, 0
+        ans, ones = 0, 0
         
-        for char in s:
-            if char == '1':
+        for c in s:
+            if c == '1':
                 ones += 1
             else:
-                zeros += 1
-            zeros = min(zeros, ones)
+                ans = min(ans+1, ones)
         
-        return zeros
+        return ans
