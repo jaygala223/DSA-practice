@@ -1,6 +1,11 @@
 class Solution:
     def minCost(self, nums: List[int], k: int) -> int:
         
+        #https://leetcode.com/problems/minimum-cost-to-split-an-array/discuss/3083951/Python-Simple-DP-with-Dict-(Hashmap)-15-Lines-of-code
+        
+        #TC: O(N*N) -> recursive and iterative loop
+        #SC: O(N) -> HashMap
+        
         @cache
         def dp(ind):
             if ind == len(nums):
