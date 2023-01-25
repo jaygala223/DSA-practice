@@ -1,6 +1,10 @@
 class Solution:
     def closestMeetingNode(self, edges: List[int], node1: int, node2: int) -> int:
         
+        #TC: O(n)+O(n) -> for DFS
+        #SC: O(2N)+O(2N) -> to store visited sets and distances from node1 and node2
+        #https://www.youtube.com/watch?v=S0jZu7H7nQ0
+        
         def dfs(node, visited, distances, dist):
             if node != -1 and node not in visited:
                 visited.add(node)
