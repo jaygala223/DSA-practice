@@ -1,14 +1,23 @@
 class Solution:
     def snakesAndLadders(self, board: List[List[int]]) -> int:
-        arr, nn, q, seen, moves = [0], len(board) ** 2, [1], set(), 0
-        for i, row in enumerate(board[::-1]): arr += row[::-1] if i % 2 else row
+        arr = [0]
+        moves = 0
+        n = len(board)**2
+        visited = set()
+        q = [1]
+        
+        for i, row in enumerate(board[::-1]): arr += row[::-1] if i%2 else row
+        
+        #bfs
         while q:
-            new = []
-            for sq in q:
-                if sq == nn: return moves 
+            level = []
+            
+            for curr in q:
+                if curr == n: return moves
                 for i in range(1, 7):
-                    if sq + i <= nn and sq + i not in seen:
-                        seen.add(sq + i)
-                        new.append(sq + i if arr[sq + i] == -1 else arr[sq + i])
-            q, moves = new, moves + 1
-        return -1 
+                    if curr + i <= n and curr + i not in visited:
+                        visited.add(curr + i)
+                        level.append(curr + i if arr[curr + i] == -1 else arr[curr + i])
+            q = level
+            moves += 1
+        return -1
