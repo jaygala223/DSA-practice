@@ -1,6 +1,6 @@
 class Solution:
     def findCheapestPrice(self, n: int, flights: List[List[int]], src: int, dst: int, k: int) -> int:
-        
+        #bellman-ford
         costs = [1e9]*(n+1)
         costs[src] = 0
         
