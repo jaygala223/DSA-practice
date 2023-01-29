@@ -1,5 +1,7 @@
 import collections
 
+#https://leetcode.com/problems/lfu-cache/discuss/207673/Python-concise-solution-**detailed**-explanation%3A-Two-dict-%2B-Doubly-linked-list
+
 class Node:
     def __init__(self, key, val):
         self.key = key
