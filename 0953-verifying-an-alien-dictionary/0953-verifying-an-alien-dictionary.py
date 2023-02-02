@@ -1,6 +1,9 @@
 class Solution:
     def isAlienSorted(self, words: List[str], order: str) -> bool:
         
+        #TC: O(N*M) => going through n words with each of average length M
+        #SC: O(26) => O(1) => since indexes will always have 26 elements which is constant
+        
         indexes = {}
         
         for i, c in enumerate(order):
@@ -18,7 +21,5 @@ class Solution:
                     break
                 if indexes[s1] > indexes[s2]:
                     return False
-                
-            
-            
+
         return True
