@@ -1,5 +1,8 @@
 class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
+        #TC: O(2n)--> O(N + M) => two traversals
+        #SC: O(2n) --> O(N)
+        
         n1, n2 = len(s1), len(s2)
         
         if n2 < n1:
