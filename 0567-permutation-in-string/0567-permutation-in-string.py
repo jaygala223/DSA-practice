@@ -20,7 +20,7 @@ class Solution:
             ctr2[s2[l]] -= 1
             if ctr2[s2[l]] < 1: ctr2.pop(s2[l])
             
-            ctr2[s2[r]] = ctr2[s2[r]] + 1
+            ctr2[s2[r]] += 1
             
             l += 1
             r += 1
