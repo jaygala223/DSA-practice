@@ -1,6 +1,9 @@
 class Solution:
     def totalFruit(self, fruits: List[int]) -> int:
-                
+        
+        #TC: O(N) -> one traversal thru fruits
+        #SC: O(N) -> dictionary
+        
         ans, mp = 0, defaultdict(int)
         
         l, r = 0, 0
