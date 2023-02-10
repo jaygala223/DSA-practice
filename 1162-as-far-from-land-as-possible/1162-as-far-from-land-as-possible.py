@@ -1,6 +1,9 @@
 class Solution:
     def maxDistance(self, grid: List[List[int]]) -> int:
         
+        #TC: O(n^m) -> for traversal and BFS
+        #SC: O(n) -> linear for Queue
+        
         m, n = len(grid), len(grid[0])
         
         q = []
