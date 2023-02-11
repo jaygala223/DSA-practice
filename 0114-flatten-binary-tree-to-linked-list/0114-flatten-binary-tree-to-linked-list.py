@@ -9,6 +9,9 @@ class Solution:
         """
         Do not return anything, modify root in-place instead.
         """
+        #TC: O(n) + O(n) --> preorder + linkedlist generation
+        #SC: O(N) --> storing pre-order traversal
+        
         pre = []
         
         def preorder(node):
@@ -16,8 +19,9 @@ class Solution:
                 pre.append(node.val)
                 preorder(node.left)
                 preorder(node.right)
+        
         preorder(root)
-        print(pre)
+
         temp = root
         
         for i in range(len(pre)):
