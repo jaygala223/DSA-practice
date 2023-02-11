@@ -1,37 +1,22 @@
 class Solution:
     def shortestAlternatingPaths(self, n: int, redEdges: List[List[int]], blueEdges: List[List[int]]) -> List[int]:
-        graph = defaultdict(lambda : defaultdict(set))
+        #TC: O(N*(v+e)) -> BFS traversal for n nodes -> O(N*V*E)
+        #SC: O(V+E) for graph
         
-        red, blue = 0, 1
+        d = [defaultdict(list), defaultdict(list)]
+        for a, b in redEdges: d[0][a] += (b, 0),
+        for a, b in blueEdges: d[1][a] += (b, 1),
+            
+        def bfs(tar):
+            q = [(0, 0, 1), (0, 0, 0)]
+            seen = [defaultdict(int), defaultdict(int)]
+            for cur, h, p in q:
+                if cur == tar: return h
+                for n, c in d[1-p][cur]:
+                    if not seen[1-p][n]:
+                        q.append((n, h+1, c))
+                        seen[1-p][n] = 1
+            return -1
         
-        for p, c in redEdges:
-            graph[p][red].add(c)
-        for p, c in blueEdges:
-            graph[p][blue].add(c)
-        
-        
-        ans = [1e9] * n
-        
-        r, b = 0, 1
-        
-        #start karenge zero se
-        q = [(0, red), (0, blue)]
-        level = -1
-        
-        while q:
-            #zero ke liye level ka ans zero hojayega
-            level += 1
-            sz = len(q)
-            for i in range(sz):
-                node, color = q.pop(0)
-                ans[node] = min(level, ans[node])
-                opp_color = color^1 #xor
-                
-                neighbors = graph[node][opp_color]
-                
-                for child in list(neighbors):
-                    graph[node][opp_color].remove(child)
-                    q.append((child, opp_color))
-        
-        return [x if x != 1e9 else -1 for x in ans]
+        return [i and bfs(i) for i in range(n)]
                     
