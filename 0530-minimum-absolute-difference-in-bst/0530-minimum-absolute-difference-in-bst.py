@@ -6,6 +6,8 @@
 #         self.right = right
 class Solution:
     def getMinimumDifference(self, root: Optional[TreeNode]) -> int:
+        #TC: O(n) -> traversal 
+        #SC: O(N) -> recursive stack space
         
         self.ans, self.parent = 1e9, -1e9
         
