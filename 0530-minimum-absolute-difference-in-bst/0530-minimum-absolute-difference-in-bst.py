@@ -10,14 +10,15 @@ class Solution:
         self.ans, self.parent = 1e9, -1e9
         
         def inorder(root):
-            if not root: return
-            
-            inorder(root.left)
-            
-            self.ans = min(self.ans, abs(root.val - self.parent))
-            self.parent = root.val
-            
-            inorder(root.right)
+            if self.ans != 1:
+                if not root: return
+
+                inorder(root.left)
+
+                self.ans = min(self.ans, abs(root.val - self.parent))
+                self.parent = root.val
+
+                inorder(root.right)
         
         inorder(root)
         return self.ans
