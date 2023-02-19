@@ -17,10 +17,14 @@ class Solution:
             
             for i in range(n):
                 if ring[i] == key[kIndex]:
-                    steps = min(steps, n-abs(i-ptr) + 1 + func(i, kIndex+1))
-                    steps = min(steps, abs(i-ptr) + 1 + func(i, kIndex+1))
+                    # steps = min(steps,  + 1 + func(i, kIndex+1))
+                    steps = min(steps, min(n-abs(i-ptr), abs(i-ptr)) + 1 + func(i, kIndex+1))
             
             dp[(ptr, kIndex)] = steps
             return dp[(ptr, kIndex)]
+        
+        
+        # dp = [[0]*n]*m
+        
         
         return func(ptr, kIndex)
